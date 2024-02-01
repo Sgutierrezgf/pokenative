@@ -33,14 +33,35 @@ export default function Navigation() {
     );
   };
 
+  const StackFavorites = () => {
+    return (
+      <PokemonStack.Navigator>
+        <PokemonStack.Screen
+          name="Favorites"
+          component={Favorites}
+          options={{ title: "Favoritos", headerTransparent: false }}
+        />
+        <PokemonStack.Screen
+          name="Pokemon"
+          component={Pokemon}
+          options={{
+            title: "",
+            headerTransparent: true,
+            headerShadowVisible: false,
+          }}
+        />
+      </PokemonStack.Navigator>
+    );
+  };
+
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Favorites"
-        component={Favorites}
+        name="StackFavorites"
+        component={StackFavorites}
         options={{
           tabBarLabel: "Favoritos",
-          headerTitle: "Favoritos",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="heart" color={color} size={size} />
           ),
